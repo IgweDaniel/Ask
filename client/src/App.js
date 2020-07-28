@@ -1,9 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Home, FullQuestion } from "./pages";
-import { Layout } from "./components/";
-import { GlobalStyle, theme } from "./genericStyle";
+import {
+  Home,
+  QuestionDetails,
+  Users,
+  Profile,
+  Communities,
+  MyProfile,
+} from "./pages";
+import { Layout } from "./components";
 import { ThemeProvider } from "styled-components";
+import { GlobalStyle, theme } from "./styles";
 
 function App() {
   return (
@@ -11,11 +18,20 @@ function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Layout>
-          <Route path="/question/:questionId">
-            <FullQuestion />
+          <Route path="/me">
+            <MyProfile />
           </Route>
-          <Route path="/users">
-            <div>user</div>
+          <Route path="/users/:userId">
+            <Profile />
+          </Route>
+          <Route path="/communities">
+            <Communities />
+          </Route>
+          <Route path="/question/:questionId">
+            <QuestionDetails />
+          </Route>
+          <Route path="/users" exact>
+            <Users />
           </Route>
           <Route path="/" exact>
             <Home />

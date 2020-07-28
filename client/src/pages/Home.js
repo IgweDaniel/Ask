@@ -3,6 +3,15 @@ import styled from "styled-components";
 import { Feed, Tabs } from "../components";
 import { useViewport } from "../hooks";
 
+const HomeWrapper = styled.div`
+  border: 1px solid #e4e6e6;
+
+  @media (min-width: 768px) {
+  }
+  @media (min-width: 1024px) {
+  }
+`;
+
 export const Home = ({ className }) => {
   const { width } = useViewport();
   const breakpoint = 769;
@@ -10,7 +19,7 @@ export const Home = ({ className }) => {
   const isDesktop = breakpoint < width;
 
   return (
-    <div className={className}>
+    <HomeWrapper className={className}>
       {isDesktop ? (
         <Tabs>
           <div label="Recent Questions">
@@ -23,15 +32,6 @@ export const Home = ({ className }) => {
       ) : (
         <Feed />
       )}
-    </div>
+    </HomeWrapper>
   );
 };
-
-export const StyledHome = styled(Home)`
-  border: 1px solid #e4e6e6;
-
-  @media (min-width: 768px) {
-  }
-  @media (min-width: 1024px) {
-  }
-`;

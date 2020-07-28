@@ -16,6 +16,7 @@ export function useOnScreen(ref, rootMargin = "0px") {
     return () => {
       if (node) observer.unobserve(node);
     };
+    // eslint-disable-next-line
   }, []);
 
   return isIntersecting;

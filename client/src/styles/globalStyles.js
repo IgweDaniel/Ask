@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { VerticalAlign, Align } from "./common";
+import { VerticalAlign, Align } from "./reusableStyles";
 
 export const GlobalStyle = createGlobalStyle`
 *{
@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing:border-box;
 }
   body {
-      background-color: rgb(241, 242, 242);
+    background: ${({ theme }) => theme.colors.bgColor};
   }
   li{
       list-style:none
@@ -71,7 +71,7 @@ width:70%;
 
  .tabs {
     border-bottom: 1px solid ${(props) => props.theme.colors.lightGrey};
-    background-color: rgb(241, 242, 242);
+    background: ${({ theme }) => theme.colors.bgColor};
     padding: 0 10px;
     height: 45px;
 
@@ -86,9 +86,9 @@ width:70%;
   }
    .tab-active {
     background: #fff;
-    border: none;
     position: relative;
-    border-top: 1px solid ${(props) => props.theme.colors.lightGrey};
+    /* border-top: 1px solid ${(props) => props.theme.colors.lightGrey}; */
+    border: none;
   }
    .tab-active:after {
     content: "";

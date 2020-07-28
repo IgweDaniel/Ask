@@ -1,31 +1,42 @@
 import React from "react";
 import styled from "styled-components";
 import logouri from "../../assets/images/qa.png";
-const Header = ({ className }) => (
+import { Link } from "react-router-dom";
+import { FiSearch } from "react-icons/fi";
+const Header = ({ className, openAuthForm }) => (
   <header className={className}>
     <nav className="panel">
-      <a href="#" className="logo">
+      <Link to="/" className="logo">
         <img src={logouri} alt="logo" />
-      </a>
+      </Link>
       <div className="search">
         <div className="input-group">
           <input type="text" name="" id="" placeholder="Type search words" />
           <span className="icon">
-            <i className="fas fa-search"></i>
+            <FiSearch size={15} />
           </span>
         </div>
       </div>
 
       <ul className="actions">
         <li>
-          <a href="#" className="button login">
+          <span
+            className="button login"
+            onClick={() => openAuthForm(true, "LGN")}
+          >
             Sign In
-          </a>
+          </span>
         </li>
         <li>
-          <a href="#" className="button register">
+          <span
+            className="button register"
+            onClick={() => openAuthForm(true, "RGS")}
+          >
             Sign Up
-          </a>
+          </span>
+          {/* <Link to="/" className="button register">
+            Sign Up
+          </Link> */}
         </li>
       </ul>
     </nav>

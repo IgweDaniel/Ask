@@ -1,83 +1,21 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import { Avatar } from ".";
 import { Link } from "react-router-dom";
 import { parseStats } from "../../utils";
-export const Question = ({ className, ...props }) => {
-  const {
-    id,
-    user,
-    title,
-    short_detail,
-    tags,
-    views,
-    answers,
-    votes,
-    has_answered,
-    time,
-  } = props;
-  return (
-    <div className={className}>
-      <Link to={`/question/${id}`}>
-        <div className="content">
-          <div className="meta">
-            <Avatar user={user} size={50} />
+import { AiOutlineCaretDown, AiFillCaretUp } from "react-icons/ai";
+import { MdQuestionAnswer } from "react-icons/md";
 
-            <div className="action">
-              <span className="icon clickable">
-                <i className="fas fa-caret-up"></i>
-              </span>
-              <span className="votes">{votes}</span>
-              <span className="icon clickable">
-                <i className="fas fa-caret-down"></i>
-              </span>
-            </div>
-          </div>
-          <div className="body">
-            <div className="header">
-              <span className="username">{user.name}</span>
-              <span className="date">Asked at {time}</span>
-            </div>
-            <h3 className="title">{title}</h3>
-            <p className="short-detail">{short_detail}</p>
+import { GiClick } from "react-icons/gi";
 
-            <ul className="tags">
-              {tags.map((tag) => (
-                <li className="tag" key={tag}>
-                  {tag}
-                </li>
-              ))}
-            </ul>
-            <div className="footer">
-              <div className="button-group comment">
-                <span className="icon">
-                  <i className="fas fa-comment-alt"></i>
-                </span>
-                <span className="text">{parseStats(answers)} answers</span>
-              </div>
-
-              <div className="button-group comment">
-                <span className="icon">
-                  <i className="fas fa-eye"></i>
-                </span>
-                <span className="text">{parseStats(views)} views</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Link>
-    </div>
-  );
-};
-
-export const StyledQuestion = styled(Question)`
-  .content {
-    background: #fff;
-    border-bottom: 1px solid #e4e6e6;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    flex-direction: column;
+const QuestionContent = styled.div`
+  background: #fff;
+  border-bottom: 1px solid #e4e6e6;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  flex-direction: column;
+ 
   }
   .meta {
     width: 20%;
@@ -90,6 +28,7 @@ export const StyledQuestion = styled(Question)`
     padding: 0 5px;
   }
   .tags {
+    margin: 20px 0;
   }
   .tag {
     display: inline-block;
@@ -100,8 +39,15 @@ export const StyledQuestion = styled(Question)`
     text-transform: capitalize;
   }
   .button-group {
-    margin-left: 10px;
+    margin-right: 10px;
     font-size: 13px;
+  }
+  .answer.button {
+    margin-left: auto;
+  }
+  .comment.answered {
+    background: ${({ theme }) => theme.colors.sucess};
+    color: #fff;
   }
   .footer {
     background-color: #f5f5f5;
@@ -127,11 +73,10 @@ export const StyledQuestion = styled(Question)`
     margin: 2px 0;
   }
   @media (min-width: 768px) {
-    .content {
-      flex-direction: row;
-      justify-content: center;
-      padding: 20px;
-    }
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+
     .meta {
       max-width: 50px;
       display: flex;
@@ -153,3 +98,89 @@ export const StyledQuestion = styled(Question)`
     }
   }
 `;
+
+const QuestionWrapper = styled.div`
+  position: relative;
+`;
+
+export const Question = ({ ...props }) => {
+  // eslint-disable-next-line
+  const nodeRef = useRef(null);
+
+  const {
+    id,
+    user,
+    title,
+    short_detail,
+    tags,
+    views,
+    answers,
+    votes,
+    has_answered,
+    time,
+  } = props;
+
+  return (
+    <>
+      <QuestionWrapper>
+        <QuestionContent>
+          <div className="meta">
+            <div className="user-image">
+              <Avatar user={user} size={50} />
+            </div>
+
+            <div className="action">
+              <span className="icon clickable">
+                <AiFillCaretUp />
+              </span>
+              <span className="votes">{votes}</span>
+              <span className="icon clickable">
+                <AiOutlineCaretDown />
+              </span>
+            </div>
+          </div>
+          <div className="body">
+            <div className="header">
+              <span className="username">{user.name}</span>
+              <span className="date">Asked at {time}</span>
+            </div>
+            <h3 className="title">
+              <Link to={`/question/${id}`}>{title}</Link>
+            </h3>
+            <p className="short-detail">{short_detail}</p>
+            <ul className="tags">
+              {tags.map((tag) => (
+                <li className="tag" key={tag}>
+                  {tag}
+                </li>
+              ))}
+            </ul>
+            <div className="footer">
+              <div
+                className={`button-group comment ${
+                  has_answered ? "answered" : ""
+                }`}
+              >
+                <span className="icon">
+                  <MdQuestionAnswer size={16} />
+                </span>
+                <span className="text">{parseStats(answers)} answers</span>
+              </div>
+
+              <div className="button-group views">
+                <span className="icon">
+                  <GiClick size={16} />
+                </span>
+                <span className="text">{parseStats(views)} views</span>
+              </div>
+
+              <button className="button answer">
+                <Link to={`/question/${id}`}>Answer</Link>
+              </button>
+            </div>
+          </div>
+        </QuestionContent>
+      </QuestionWrapper>
+    </>
+  );
+};

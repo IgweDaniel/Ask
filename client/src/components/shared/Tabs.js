@@ -1,31 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Tab = ({
-  label,
-  onClick,
-  activeTab,
-  className,
-  customClass,
-  customActiveClass,
-}) => {
-  return (
-    <li
-      className={`${customClass ? customClass : className} ${
-        activeTab === label
-          ? customActiveClass
-            ? customActiveClass
-            : "tab-list-active"
-          : ""
-      } clickable`}
-      onClick={() => onClick(label)}
-    >
-      {label}
-    </li>
-  );
-};
-
-const StyledTab = styled(Tab)`
+const TabListItem = styled.li`
   height: 100%;
   display: flex;
   align-items: center;
@@ -38,8 +14,43 @@ const StyledTab = styled(Tab)`
   }
 `;
 
-const Tabs = ({
+const TabsWrapper = styled.div`
+  .tab-list {
+    border-bottom: 1px solid #e4e6e6;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    height: 70px;
+    width: 100%;
+    padding: 0 10px;
+  }
+`;
+
+const Tab = ({
+  label,
+  onClick,
+  activeTab,
   className,
+  customClass,
+  customActiveClass,
+}) => {
+  return (
+    <TabListItem
+      className={`${customClass ? customClass : className} ${
+        activeTab === label
+          ? customActiveClass
+            ? customActiveClass
+            : "tab-list-active"
+          : ""
+      } clickable`}
+      onClick={() => onClick(label)}
+    >
+      {label}
+    </TabListItem>
+  );
+};
+
+export const Tabs = ({
   children,
   tabsClassName,
   tabClassName,
@@ -51,12 +62,12 @@ const Tabs = ({
   };
 
   return (
-    <div className={className}>
+    <TabsWrapper>
       <ul className={tabsClassName ? tabsClassName : "tab-list"}>
         {children.map((child) => {
           const { label } = child.props;
           return (
-            <StyledTab
+            <Tab
               customActiveClass={activeTabClassName}
               customClass={tabClassName}
               activeTab={activeTab}
@@ -73,18 +84,6 @@ const Tabs = ({
           return child.props.children;
         })}
       </div>
-    </div>
+    </TabsWrapper>
   );
 };
-
-export const StyledTabs = styled(Tabs)`
-  .tab-list {
-    border-bottom: 1px solid #e4e6e6;
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    height: 70px;
-    width: 100%;
-    padding: 0 10px;
-  }
-`;

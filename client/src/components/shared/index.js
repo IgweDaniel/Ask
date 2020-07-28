@@ -1,4 +1,6 @@
-export { StyledTabs as Tabs } from "./Tabs";
-export { StyledQuestion as Question } from "./Question";
-export { StyledAvatar as Avatar } from "./Avatar";
-// export { StyledTabs as Tabs } from "./Polls";
+export { Tabs } from "./Tabs";
+export { Question } from "./Question";
+export { Avatar } from "./Avatar";
+export { QuickProfile } from "./QuickProfile";
+export { User } from "./User";
+export { Modal } from "./Modal";

@@ -1,5 +1,8 @@
 import React from "react";
+import styled from "styled-components";
 
-export const Polls = () => {
+const Polls = () => {
   return <div>pOLLS</div>;
 };
+
+export const StyledPolls = styled(Polls)``;

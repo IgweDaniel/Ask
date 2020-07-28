@@ -1,4 +1,9 @@
 export * from "./shared";
-export { StyledLayout as Layout } from "./Layout";
-export { StyledFeed as Feed } from "./Feed";
-export { StyledContentHeader as ContentHeader } from "./ContentHeader";
+export { Layout } from "./Layout";
+export { Feed } from "./Feed";
+export { ContentHeader } from "./ContentHeader";
+export { Answer } from "./Answer";
+export { AnswerForm } from "./AnswerForm";
+export { QuestionForm } from "./QuestionForm";
+
+export * from "./AuthForm";
