@@ -4,6 +4,8 @@ import { AiOutlineCaretDown, AiFillCaretUp } from "react-icons/ai";
 import { MdReply } from "react-icons/md";
 import { VerticalAlign, HorizontalAlign } from "../styles";
 import { Avatar } from "./shared";
+import { QuestionHeader } from "./shared/Question";
+import { useViewport } from "../hooks";
 
 const AnswerWrapper = styled.div`
   background: #fff;
@@ -11,11 +13,12 @@ const AnswerWrapper = styled.div`
   ${HorizontalAlign}
   padding: 20px;
   flex-direction: column;
-
-  .meta {
-    width: 20%;
-
-    ${HorizontalAlign}
+  .user {
+    ${VerticalAlign}
+  }
+  .mobile-header {
+    margin-left: 10px;
+    width: 100%;
   }
   .content {
     width: 100%;
@@ -36,8 +39,7 @@ const AnswerWrapper = styled.div`
 
     color: ${({ theme }) => theme.colors.grey};
   }
-  .actions .vote-action .clickable {
-  }
+
   .actions .reply-action {
     color: ${({ theme }) => theme.colors.grey};
     margin: 0 10px;
@@ -57,15 +59,9 @@ const AnswerWrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     padding: 20px;
-
-    .meta {
-      max-width: 50px;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: flex-start;
+    .user {
+      align-items: flex-start;
     }
-
     .content {
       width: 90%;
       padding: 0 10px;
@@ -75,22 +71,28 @@ const AnswerWrapper = styled.div`
     .meta {
       width: 10%;
       max-width: 50px;
-      /* background: red; */
     }
   }
 `;
 
 export const Answer = ({ user, votes, time, text }) => {
+  const { width } = useViewport();
+  const breakpoint = 768;
+  const isDesktop = breakpoint <= width;
   return (
     <AnswerWrapper>
       <div className="user">
         <Avatar user={user} size={50} />
+        {!isDesktop && (
+          <div className="mobile-header">
+            <QuestionHeader user={user} time={time} timePrefix="answered" />
+          </div>
+        )}
       </div>
       <div className="content">
-        <div className="header">
-          <span className="username">{user.name}</span>
-          <span className="date">Asked at {time}</span>
-        </div>
+        {isDesktop && (
+          <QuestionHeader user={user} time={time} timePrefix="answered" />
+        )}
         <p className="detail">{text}</p>
 
         <div className="actions">

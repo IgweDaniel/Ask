@@ -23,7 +23,15 @@ export const GlobalStyle = createGlobalStyle`
       align-items:center;
       justify-content:center;
   }
-
+.shadow{
+  box-shadow: -4px 3px 12px -13px rgba(0, 0, 0, 0.44);
+}
+button{
+  outline:none;
+      box-shadow:none;
+      border:none;
+      cursor:pointer;
+}
   .button {
       outline:none;
       box-shadow:none;
@@ -47,6 +55,27 @@ cursor:pointer;
   .clickable{
       cursor:pointer;
   }
+  .primary{
+    
+    color: ${(props) => props.theme.colors.primary};
+  }
+  .badge{
+    display:block;
+    color:#fff;
+    padding:0 5px;
+    font-weight:600;
+    font-size:13px;
+    text-transform:capitalize
+  }
+
+  .badge.professional{
+    background:#143642;
+
+  }
+  .badge.noob{
+    background:#E5625E;
+   
+  }
 .button-group{
     cursor: pointer;
     display: flex;
@@ -64,6 +93,7 @@ cursor:pointer;
 .button-group .icon{
 width: 30%;
 font-size:13px;
+
 }
 .button-group .text{
 width:70%;
@@ -92,6 +122,8 @@ width:70%;
   }
    .tab-active:after {
     content: "";
+
+    
     display: block;
     background: #fff;
     position: absolute;

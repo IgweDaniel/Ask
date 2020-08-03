@@ -31,7 +31,7 @@ const UserWrapper = styled.div`
 export const User = ({ ...user }) => {
   const { id, name, status } = user;
   return (
-    <UserWrapper>
+    <UserWrapper className="shadow">
       <Avatar user={user} size={70} />
 
       <Link to={`/users/${id}`}>

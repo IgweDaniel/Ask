@@ -1,49 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import logouri from "../../assets/images/qa.png";
+import logouri from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
-const Header = ({ className, openAuthForm }) => (
-  <header className={className}>
-    <nav className="panel">
-      <Link to="/" className="logo">
-        <img src={logouri} alt="logo" />
-      </Link>
-      <div className="search">
-        <div className="input-group">
-          <input type="text" name="" id="" placeholder="Type search words" />
-          <span className="icon">
-            <FiSearch size={15} />
-          </span>
-        </div>
-      </div>
 
-      <ul className="actions">
-        <li>
-          <span
-            className="button login"
-            onClick={() => openAuthForm(true, "LGN")}
-          >
-            Sign In
-          </span>
-        </li>
-        <li>
-          <span
-            className="button register"
-            onClick={() => openAuthForm(true, "RGS")}
-          >
-            Sign Up
-          </span>
-          {/* <Link to="/" className="button register">
-            Sign Up
-          </Link> */}
-        </li>
-      </ul>
-    </nav>
-  </header>
-);
-
-const StyledHeader = styled(Header)`
+const HeaderWrapper = styled.header`
   height: 85px;
   height: ${({ theme }) => theme.settings.navHeight}px;
   background-color: #fff;
@@ -63,8 +24,8 @@ const StyledHeader = styled(Header)`
     margin: 0 auto;
   }
   .logo {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     display: block;
   }
   img {
@@ -128,8 +89,8 @@ const StyledHeader = styled(Header)`
       justify-content: flex-end;
     }
     .logo {
-      width: 70px;
-      height: 80px;
+      width: 85px;
+      height: 85px;
       display: block;
     }
     .actions {
@@ -144,4 +105,44 @@ const StyledHeader = styled(Header)`
   }
 `;
 
-export default StyledHeader;
+const Header = ({ openAuthForm }) => (
+  <HeaderWrapper>
+    <nav className="panel">
+      <Link to="/" className="logo">
+        <img src={logouri} alt="logo" />
+      </Link>
+      <div className="search">
+        <div className="input-group">
+          <input type="text" name="" id="" placeholder="Type search words" />
+          <span className="icon">
+            <FiSearch size={15} />
+          </span>
+        </div>
+      </div>
+
+      <ul className="actions">
+        <li>
+          <span
+            className="button login"
+            onClick={() => openAuthForm(true, "LGN")}
+          >
+            Sign In
+          </span>
+        </li>
+        <li>
+          <span
+            className="button register"
+            onClick={() => openAuthForm(true, "RGS")}
+          >
+            Sign Up
+          </span>
+          {/* <Link to="/" className="button register">
+            Sign Up
+          </Link> */}
+        </li>
+      </ul>
+    </nav>
+  </HeaderWrapper>
+);
+
+export default Header;

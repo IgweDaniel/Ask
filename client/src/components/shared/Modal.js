@@ -18,7 +18,7 @@ const Backdrop = styled.div`
   z-index: 500;
   background: #000;
   display: ${({ state }) => (state === "exited" ? "none" : "block")};
-  opacity: ${({ state }) => (state === "entered" ? 0.5 : 0)};
+  opacity: ${({ state }) => (state === "entered" ? 0.45 : 0)};
 `;
 const ModalWrapper = styled.div`
    position: fixed;

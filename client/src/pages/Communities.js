@@ -5,9 +5,10 @@ import { IoIosPeople } from "react-icons/io";
 import { parseStats } from "../utils";
 import { VerticalAlign, HorizontalAlign } from "../styles";
 import { ContentHeader } from "../components";
+import { MdLibraryAdd } from "react-icons/md";
 
 const CommunitiesWrapper = styled.div`
-display: grid;
+  display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-auto-rows: 110px;
   padding: 20px;
@@ -15,44 +16,43 @@ display: grid;
   background: #fff;
   height: 100%;
 
-  @media(min-width:768px){
+  @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-.community{
-  border: 1px solid ${(props) => props.theme.colors.lightGrey};
-  background-color:#fff;
-  /* box-shadow: rgba(0, 0, 0, 0.03) 0px 2px 5px; */
-  /* box-shadow: rgba(0, 0, 0, 0.03) 0px 21px 36px; */
-  height:100%;
-  width:100%;
-  flex-direction:column;
-  ${HorizontalAlign}
+  .community {
+    border: 1px solid ${(props) => props.theme.colors.lightGrey};
+    background-color: #fff;
+    /* box-shadow: rgba(0, 0, 0, 0.03) 0px 2px 5px; */
+    /* box-shadow: rgba(0, 0, 0, 0.03) 0px 21px 16px; */
 
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    ${HorizontalAlign}
+  }
 
-}
-
-.desc{
-
-}
-  .name,.followers,.desc{
-    padding:0 20px;
+  .desc {
+  }
+  .name,
+  .followers,
+  .desc {
+    padding: 0 20px;
     ${VerticalAlign}
-  }
-  .name{
-height:50%
-  }
-  .followers{
-  
-    height:50%
   }
   .name {
-    font-weight:bold;
-    ${VerticalAlign}
-    /* border-bottom: 1px solid ${(props) => props.theme.colors.lightGrey}; */
+    height: 50%;
   }
-  .name .text{
-    margin:0 10px;
+  .followers {
+    height: 50%;
+  }
+
+  .name {
+    font-weight: bold;
+    ${VerticalAlign}
+  }
+  .name .text {
+    margin: 0 10px;
   }
   .thumb {
     height: 20px;
@@ -63,15 +63,23 @@ height:50%
     height: 100%;
     width: 100%;
   }
-  .button-group{
-    width:130px;
-    background: ${(props) => props.theme.colors.yellow};
-    color:#fff;
-    border:none;
+  .button,
+  .button-group {
+    background: transparent;
+    border: 1px solid ${(props) => props.theme.colors.lightGrey} !important;
+    color: ${(props) => props.theme.colors.grey};
   }
+  .button {
+    margin-left: auto;
+  }
+  .button-group {
+    width: 130px;
+
+    border: none;
+  }
+
   .button-group .text {
     font-size: 12px;
-
   }
 `;
 
@@ -81,7 +89,7 @@ export const Communities = ({ className }) => {
       <ContentHeader />
       <CommunitiesWrapper>
         {communities.map(({ name, followers, thumb }) => (
-          <div className="community" key={name}>
+          <div className="community shadow" key={name}>
             <div className="name">
               <span className="thumb">
                 <img src={thumb} alt="" />
@@ -95,6 +103,10 @@ export const Communities = ({ className }) => {
                   <IoIosPeople size={16} />
                 </span>
                 <span className="text">{parseStats(followers)} followers</span>
+              </div>
+
+              <div className="button">
+                <MdLibraryAdd />
               </div>
             </div>
           </div>

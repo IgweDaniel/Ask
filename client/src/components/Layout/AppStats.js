@@ -4,8 +4,6 @@ import { Tabs } from "../";
 import { Align } from "../../styles";
 
 const AppStatsWrapper = styled.div`
-  /* height: 100%; */
-  display: none;
   border: 1px solid #e4e6e6;
   background: ${({ theme }) => theme.colors.bgColor};
 
@@ -34,10 +32,12 @@ const AppStatsWrapper = styled.div`
     font-weight: bold;
     margin: 10px 0;
   }
+  .action .button {
+    width: 90%;
+    height: 40px;
+  }
 
   @media (min-width: 768px) {
-    display: block;
-
     .action .button {
       width: 80%;
       height: 40px;

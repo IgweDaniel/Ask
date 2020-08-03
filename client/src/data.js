@@ -6,7 +6,7 @@ export const questions = [
     user: {
       id: 2,
       name: "Martin Hope",
-      status: "Professional",
+      status: "noob",
       points: 213,
       questions: 3,
       answers: 7,
@@ -24,7 +24,7 @@ export const questions = [
     views: 4000,
     answers: 8,
     votes: 200,
-    time: "",
+    time: 1596463800080,
     has_answered: () => Boolean(Math.round(Math.random())),
   },
 
@@ -50,7 +50,7 @@ export const questions = [
     views: 1000,
     answers: 3,
     votes: 51,
-    time: "",
+    time: 1596291052000,
     has_answered: generateAnswerState(),
   },
   {
@@ -75,7 +75,7 @@ export const questions = [
       "In my local language (Bahasa Indonesia) there are no verb-2 or past tense form as time tracker. So, I often forget to use the past form of verb when speaking english.I saw him last night (correct)I see him last night (incorrect)But i think both has the same meaning and are understandable, Isn’t it? ",
     answers: 3,
     votes: 51,
-    time: "",
+    time: 1595427052000,
     has_answered: generateAnswerState(),
   },
   {
@@ -98,7 +98,7 @@ export const questions = [
     views: 1000,
     answers: 3,
     votes: 51,
-    time: "",
+    time: 1563804652000,
     has_answered: generateAnswerState(),
   },
 ];
@@ -118,7 +118,7 @@ export const answers = [
         "https://cdn.pixabay.com/photo/2017/12/31/15/56/portrait-3052641__340.jpg",
     },
     votes: 51,
-    time: "",
+    time: 1596463800080,
     text:
       "No, ‘I see him last night’ is always incorrect and will be only just barely understandable. It is a very serious and basic error, and it will be tiring for a native speaker to converse with someone who speaks like this, because they will constantly have to be remembering what the person really means. It will not be ‘immediately obvious without thinking about it’.Someone just asked this question recently, and I replied, saying that ‘I see him last night’ is never correct. That is exactly what i meant.",
   },
@@ -136,7 +136,7 @@ export const answers = [
         "https://cdn.pixabay.com/photo/2017/12/31/15/56/portrait-3052641__340.jpg",
     },
     votes: 51,
-    time: "",
+    time: 1596463800080,
     text:
       "No, ‘I see him last night’ is always incorrect and will be only just barely understandable. It is a very serious and basic error, and it will be tiring for a native speaker to converse with someone who speaks like this, because they will constantly have to be remembering what the person really means. It will not be ‘immediately obvious without thinking about it’.Someone just asked this question recently, and I replied, saying that ‘I see him last night’ is never correct. That is exactly what i meant.",
   },

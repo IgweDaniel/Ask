@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { QuickProfile } from ".";
 import { Transition } from "react-transition-group";
@@ -58,10 +58,7 @@ export const Avatar = ({ user, ...props }) => {
   const { id, avatar, name } = user;
   const [animate, setAnimate] = useState(false);
   const nodeRef = useRef(null);
-  useEffect(() => {
-    console.log(animate);
-    return () => {};
-  }, [animate]);
+
   return (
     <>
       <AvatarWrapper

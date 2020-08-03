@@ -9,7 +9,7 @@ import { SideNav } from "./SideNav";
 
 const LayoutWrapper = styled.div`
   .mainContent {
-    height: 100vh;
+    height: 100%;
   }
   .misc {
     background: ${({ theme }) => theme.colors.bgColor};
@@ -23,16 +23,21 @@ const LayoutWrapper = styled.div`
     background: #fff;
     min-height: 300px;
   }
+  .wall {
+  }
 
-  @media (min-width: 768px) {
+  @media (min-width: 850px) {
     .wall {
       display: grid;
       gap: 20px;
       grid-template-columns: 2fr 1fr;
     }
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 1200px) {
     .quickNav {
+      display: block;
+    }
+    .ranking {
       display: block;
     }
 

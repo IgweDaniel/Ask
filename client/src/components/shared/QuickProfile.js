@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 import { Link } from "react-router-dom";
-import { TiTickOutline, TiUserAdd, TiEye } from "react-icons/ti";
+import { TiTickOutline, TiEye } from "react-icons/ti";
 
 import { VerticalAlign, Align } from "../../styles";
+import { MdLibraryAdd } from "react-icons/md";
 
 const QuickProfileWrapper = styled.div`
 position:relative;
@@ -77,7 +78,7 @@ position:relative;
   }
 
   .user-stats .stat span.text{
-      margin:5px 0
+      margin:5px 0;
       text-transform:uppercase;
       font-variant:small-caps
   }
@@ -123,7 +124,8 @@ export const QuickProfile = ({
       <div className="user-actions">
         <div className="user-action">
           <div className="icon">
-            <TiUserAdd size={17} fill="#fff" />
+            {/* <TiUserAdd size={17} fill="#fff" /> */}
+            <MdLibraryAdd size={17} fill="#fff" />
           </div>
         </div>
         <Link to={`/users/${id}`}>
