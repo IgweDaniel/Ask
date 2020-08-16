@@ -59,8 +59,7 @@ export const QuestionContent = styled.div`
   }
 
   .comment.answered {
-    background: ${({ theme }) => theme.colors.primary};
-    color: #fff;
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   .action {

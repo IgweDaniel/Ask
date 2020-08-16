@@ -55,7 +55,7 @@ const SideNavWrapper = styled.div`
 
 const ICON_SIZE = 18;
 
-export const SideNav = () => {
+export const AppNav = () => {
   return (
     <SideNavWrapper>
       <ul className="quick-links">

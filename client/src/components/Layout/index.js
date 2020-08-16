@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { Modal, QuestionForm, AuthForm } from "../";
 
 import { AppStats } from "./AppStats";
-import { SideNav } from "./SideNav";
+import { AppNav } from "./AppNav";
 
 const LayoutWrapper = styled.div`
   .mainContent {
@@ -87,7 +87,7 @@ export const Layout = ({ className, children }) => {
         <div className="container">
           <div className="wall">
             <section className="quickNav">
-              <SideNav />
+              <AppNav />
             </section>
 
             <section className="mainContent">{children}</section>
@@ -98,6 +98,8 @@ export const Layout = ({ className, children }) => {
           </div>
         </div>
       </LayoutWrapper>
+
+      <footer>&copy; 2020 Question and Answer</footer>
     </>
   );
 };

@@ -136,6 +136,16 @@ width:70%;
      margin: 0 auto;
   }
 
+  footer {
+    height: 100px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    color:${({ theme }) => theme.colors.primary};
+    font-variant:small-caps;
+    
+  }
   @media (min-width: 768px) {
     .container{
         width: 90%;
