@@ -54,7 +54,7 @@ const AnimationProfile = styled.div`
   }
 `;
 
-export const Avatar = ({ user, ...props }) => {
+export const Avatar = ({ user, showProfile = true, ...props }) => {
   const { id, avatar, name } = user;
   const [animate, setAnimate] = useState(false);
   const nodeRef = useRef(null);
@@ -72,13 +72,15 @@ export const Avatar = ({ user, ...props }) => {
           </div>
         </Link>
 
-        <Transition nodeRef={nodeRef} in={animate} timeout={500}>
-          {(state) => (
-            <AnimationProfile state={state} avatarSize={props.size}>
-              <QuickProfile {...user} />
-            </AnimationProfile>
-          )}
-        </Transition>
+        {showProfile && (
+          <Transition nodeRef={nodeRef} in={animate} timeout={500}>
+            {(state) => (
+              <AnimationProfile state={state} avatarSize={props.size}>
+                <QuickProfile {...user} />
+              </AnimationProfile>
+            )}
+          </Transition>
+        )}
       </AvatarWrapper>
     </>
   );

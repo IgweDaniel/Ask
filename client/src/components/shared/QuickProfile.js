@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 import { Link } from "react-router-dom";
-import { TiTickOutline, TiEye } from "react-icons/ti";
+import { TiTickOutline } from "react-icons/ti";
 
 import { VerticalAlign, Align } from "../../styles";
-import { MdLibraryAdd } from "react-icons/md";
+// import { MdLibraryAdd } from "react-icons/md";
 
 const QuickProfileWrapper = styled.div`
 position:relative;
@@ -71,6 +71,10 @@ position:relative;
     /* box-shadow: rgba(0, 0, 0, 0.03) 0px 21px 36px; */
     height:25px;
     width:50px;
+    width:100%;
+    font-weight:bold;
+    text-transform:capitalize;
+    color:#fff;
     ${Align}
     background:${({ theme }) => theme.colors.primary};
     /* border:1px solid ${({ theme }) => theme.colors.lightGrey}; */
@@ -98,13 +102,12 @@ const UserStat = ({ value, label }) => (
 export const QuickProfile = ({
   id,
   name,
+
   status,
-  points,
-  questions,
-  answers,
-  best_answer,
+  stats: { points, questions, answers, best_answer },
   avatar,
 }) => {
+  console.log(id);
   return (
     <QuickProfileWrapper>
       <div className="user-avatar">
@@ -122,19 +125,21 @@ export const QuickProfile = ({
       </div>
 
       <div className="user-actions">
-        <div className="user-action">
+        {/* <div className="user-action">
+   
           <div className="icon">
-            {/* <TiUserAdd size={17} fill="#fff" /> */}
+       
             <MdLibraryAdd size={17} fill="#fff" />
           </div>
-        </div>
-        <Link to={`/users/${id}`}>
-          <div className="user-action">
-            <div className="icon">
+        </div> */}
+        <div className="user-action">
+          <Link to={`/users/${id}`}>
+            view profile
+            {/* <div className="icon">
               <TiEye size={16} fill="#fff" />
-            </div>
-          </div>
-        </Link>
+            </div> */}
+          </Link>
+        </div>
       </div>
     </QuickProfileWrapper>
   );

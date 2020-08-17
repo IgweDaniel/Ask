@@ -32,7 +32,7 @@ export const User = ({ ...user }) => {
   const { id, name, status } = user;
   return (
     <UserWrapper className="shadow">
-      <Avatar user={user} size={70} />
+      <Avatar user={user} size={70} showProfile={false} />
 
       <Link to={`/users/${id}`}>
         <h5 className="user-name">{name}</h5>

@@ -1,19 +1,69 @@
 const generateAnswerState = () => Boolean(Math.round(Math.random()));
 
+const getUser = (users) => users[Math.round(Math.random() * users.length)];
+
+export const fullProfileInfo = {
+  about:
+    "An erudite in search of wisdom and yes i said it.  yes i called myself an erudite Live with it,An erudite in search of wisdom and yes i said it.  yes i called myself an erudite Live with it",
+  occupation: "Lawyer",
+  email: "theuser@gmail.com",
+  location: "Damita, Egypt",
+  banner:
+    "https://images.pexels.com/photos/159751/book-address-book-learning-learn-159751.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+  social: [
+    { name: "twitter", handle: "theuser" },
+    { name: "instagram", handle: "the_user" },
+  ],
+  followers_count: 24,
+  following_count: 4,
+  latest_followers: [],
+  latest_following: [],
+};
+
+export const users = [
+  {
+    id: 1,
+    name: "Ahmed Hassan",
+    status: "Professional",
+    stats: { points: 213, questions: 3, answers: 7, best_answer: 10 },
+    avatar:
+      "https://cdn.pixabay.com/photo/2017/12/31/15/56/portrait-3052641__340.jpg",
+  },
+  {
+    id: 2,
+    name: "Martin Hope",
+    status: "Professional",
+    stats: { points: 13, questions: 3, answers: 7, best_answer: 0 },
+    avatar:
+      "https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358__340.jpg",
+  },
+  {
+    id: 3,
+    name: "Excel Daniel",
+    status: "noob",
+    stats: {
+      points: 213,
+      questions: 0,
+      answers: 7,
+      best_answer: 6,
+    },
+    avatar:
+      "https://images.pexels.com/photos/936119/pexels-photo-936119.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  },
+  {
+    id: 4,
+    name: "Jane Doe",
+    status: "noob",
+    stats: { points: 213, questions: 3, answers: 7, best_answer: 0 },
+    avatar:
+      "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  },
+];
+
 export const questions = [
   {
     id: 1,
-    user: {
-      id: 2,
-      name: "Martin Hope",
-      status: "noob",
-      points: 213,
-      questions: 3,
-      answers: 7,
-      best_answer: 0,
-      avatar:
-        "https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358__340.jpg",
-    },
+    user: getUser(users),
     title:
       "Is this statement, “i see him last night” can be understood as “I saw him last night”?",
     short_detail:
@@ -30,17 +80,7 @@ export const questions = [
 
   {
     id: 2,
-    user: {
-      id: 2,
-      name: "Ahmed Hassan",
-      status: "Professional",
-      points: 213,
-      questions: 3,
-      answers: 7,
-      best_answer: 0,
-      avatar:
-        "https://cdn.pixabay.com/photo/2017/12/31/15/56/portrait-3052641__340.jpg",
-    },
+    user: getUser(users),
     title: "How do native speakers tell I’m foreign based on my English alone?",
     short_detail:
       "I’m a 19-year-old student from Malaysia. I’ve been introduced to the language at a very young age and I’m capable of conducting any type of conversation. However, some of my English-speaking friends on the internet didn’t take too long to...",
@@ -55,17 +95,7 @@ export const questions = [
   },
   {
     id: 4,
-    user: {
-      id: 2,
-      name: "Ahmed Hassan",
-      status: "Professional",
-      points: 213,
-      questions: 3,
-      answers: 7,
-      best_answer: 0,
-      avatar:
-        "https://cdn.pixabay.com/photo/2017/12/31/15/56/portrait-3052641__340.jpg",
-    },
+    user: getUser(users),
     title: "How do native speakers tell I’m foreign based on my English alone?",
     short_detail:
       "I’m a 19-year-old student from Malaysia. I’ve been introduced to the language at a very young age and I’m capable of conducting any type of conversation. However, some of my English-speaking friends on the internet didn’t take too long to...",
@@ -80,17 +110,7 @@ export const questions = [
   },
   {
     id: 3,
-    user: {
-      id: 2,
-      name: "Ahmed Hassan",
-      status: "Professional",
-      points: 213,
-      questions: 3,
-      answers: 7,
-      best_answer: 0,
-      avatar:
-        "https://cdn.pixabay.com/photo/2017/12/31/15/56/portrait-3052641__340.jpg",
-    },
+    user: getUser(users),
     title: "Can someone tell me the origin of puns",
     short_detail: "I am fascinated by puns and would like to know their origin",
     tags: ["english", "language"],
@@ -106,17 +126,7 @@ export const questions = [
 export const answers = [
   {
     id: 1,
-    user: {
-      id: 2,
-      name: "Ahmed Hassan",
-      status: "Professional",
-      points: 213,
-      questions: 3,
-      answers: 7,
-      best_answer: 0,
-      avatar:
-        "https://cdn.pixabay.com/photo/2017/12/31/15/56/portrait-3052641__340.jpg",
-    },
+    user: getUser(users),
     votes: 51,
     time: 1596463800080,
     text:
@@ -124,68 +134,11 @@ export const answers = [
   },
   {
     id: 2,
-    user: {
-      id: 2,
-      name: "Ahmed Hassan",
-      status: "Professional",
-      points: 213,
-      questions: 3,
-      answers: 7,
-      best_answer: 0,
-      avatar:
-        "https://cdn.pixabay.com/photo/2017/12/31/15/56/portrait-3052641__340.jpg",
-    },
+    user: getUser(users),
     votes: 51,
     time: 1596463800080,
     text:
       "No, ‘I see him last night’ is always incorrect and will be only just barely understandable. It is a very serious and basic error, and it will be tiring for a native speaker to converse with someone who speaks like this, because they will constantly have to be remembering what the person really means. It will not be ‘immediately obvious without thinking about it’.Someone just asked this question recently, and I replied, saying that ‘I see him last night’ is never correct. That is exactly what i meant.",
-  },
-];
-
-export const users = [
-  {
-    id: 1,
-    name: "Ahmed Hassan",
-    status: "Professional",
-    points: 213,
-    questions: 3,
-    answers: 7,
-    best_answer: 0,
-    avatar:
-      "https://cdn.pixabay.com/photo/2017/12/31/15/56/portrait-3052641__340.jpg",
-  },
-  {
-    id: 2,
-    name: "Martin Hope",
-    status: "Professional",
-    points: 213,
-    questions: 3,
-    answers: 7,
-    best_answer: 0,
-    avatar:
-      "https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358__340.jpg",
-  },
-  {
-    id: 3,
-    name: "Excel Daniel",
-    status: "beginner",
-    points: 213,
-    questions: 3,
-    answers: 7,
-    best_answer: 0,
-    avatar:
-      "https://images.pexels.com/photos/936119/pexels-photo-936119.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  },
-  {
-    id: 4,
-    name: "Jane Doe",
-    status: "beginner",
-    points: 213,
-    questions: 3,
-    answers: 7,
-    best_answer: 0,
-    avatar:
-      "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
   },
 ];
 
