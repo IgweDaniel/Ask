@@ -11,6 +11,8 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.colors.bgColor};
   }
+
+
   li{
       list-style:none
   }

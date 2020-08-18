@@ -9,16 +9,17 @@ const FeedWrapper = styled.div``;
 export const Feed = ({ className }) => {
   return (
     <FeedWrapper>
-      {questions.map((question) => (
-        <Question {...question} key={question.id}>
-          <span slot="title">
-            <Link to={`/question/${question.id}`}>{question.title}</Link>
-          </span>
-          <p className="short_detail" slot="detail">
-            {question.short_detail}
-          </p>
-        </Question>
-      ))}
+      {questions &&
+        questions.map((question) => (
+          <Question {...question} key={question.id}>
+            <span slot="title">
+              <Link to={`/question/${question.id}`}>{question.title}</Link>
+            </span>
+            <p className="short_detail" slot="detail">
+              {question.short_detail}
+            </p>
+          </Question>
+        ))}
     </FeedWrapper>
   );
 };

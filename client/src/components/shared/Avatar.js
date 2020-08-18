@@ -55,10 +55,10 @@ const AnimationProfile = styled.div`
 `;
 
 export const Avatar = ({ user, showProfile = true, ...props }) => {
-  const { id, avatar, name } = user;
+  // const { id, avatar, name } = user;
   const [animate, setAnimate] = useState(false);
   const nodeRef = useRef(null);
-
+  if (!user) return null;
   return (
     <>
       <AvatarWrapper
@@ -66,9 +66,9 @@ export const Avatar = ({ user, showProfile = true, ...props }) => {
         onMouseEnter={(e) => setAnimate(true)}
         onMouseLeave={(e) => setAnimate(false)}
       >
-        <Link to={`/users/${id}`}>
+        <Link to={`/users/${user.id}`}>
           <div className="avatar-wrapper">
-            <img src={avatar} alt={name} />
+            <img src={user.avatar} alt={user.name} />
           </div>
         </Link>
 

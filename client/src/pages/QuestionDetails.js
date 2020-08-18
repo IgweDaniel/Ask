@@ -78,9 +78,10 @@ export const QuestionDetails = () => {
           activeTabClassName="tab-active"
         >
           <div label="Voted">
-            {fullAnswers.map((answer) => (
-              <Answer key={answer.id} {...answer} />
-            ))}
+            {fullAnswers &&
+              fullAnswers.map((answer) => (
+                <Answer key={answer.id} {...answer} />
+              ))}
           </div>
           <div label="Oldest">
             After 'while, <em>Crocodile</em>!

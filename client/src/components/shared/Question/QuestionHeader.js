@@ -36,12 +36,14 @@ export const QuestionHeader = ({ user, time, timePrefix = "Asked" }) => {
   const date = moment(new Date(time)).format("MMM Do YY");
   return (
     <QuestionHeaderWrapper>
-      <UserName className="username">
-        <span className="name">{user.name}</span>
-        <span className={`badge ${user.status.toLowerCase()}`}>
-          {user.status}
-        </span>
-      </UserName>
+      {user && (
+        <UserName className="username">
+          <span className="name">{user.name}</span>
+          <span className={`badge ${user.status.toLowerCase()}`}>
+            {user.status}
+          </span>
+        </UserName>
+      )}
       <span className="date">
         {timePrefix}: <span className="primary">{date}</span>
       </span>

@@ -7,3 +7,4 @@ export { AnswerForm } from "./AnswerForm";
 export { QuestionForm } from "./QuestionForm";
 
 export * from "./AuthForm";
+export { Editor } from "./TextEditor";

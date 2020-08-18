@@ -9,7 +9,7 @@ export const fullProfileInfo = {
   email: "theuser@gmail.com",
   location: "Damita, Egypt",
   banner:
-    "https://images.pexels.com/photos/159751/book-address-book-learning-learn-159751.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    "https://images.pexels.com/photos/1106468/pexels-photo-1106468.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
   social: [
     { name: "twitter", handle: "theuser" },
     { name: "instagram", handle: "the_user" },

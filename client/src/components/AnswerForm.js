@@ -1,34 +1,53 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
+
 import styled from "styled-components";
+import { Editor } from ".";
 
-import { createEditor } from "slate";
-
-// Import the Slate components and React plugin.
-import { Slate, Editable, withReact } from "slate-react";
 // import { VerticalAlign, HorizontalAlign } from "../styles";
 
 const AnswerFormWrapper = styled.div`
-  height: 400px;
+  min-height: 400px;
   background: #fff;
+  padding: 20px;
+  .wrapper {
+    margin: 0 auto;
+    border: 1px solid ${({ theme }) => theme.colors.lightGrey};
+  }
+  .button {
+    margin: 20px auto;
+    width: 100%;
+  }
+
+  .jodit_theme_summery {
+    border-width: 0px;
+  }
+  .jodit_theme_summery .jodit-status-bar {
+    /* display: none; */
+
+    background: transparent;
+  }
+  .jodit_theme_summery .jodit-workplace {
+    font-family: "Inter";
+  }
+  .jodit_theme_summery .jodit-toolbar__box {
+    /* background: ${({ theme }) => theme.colors.lightGrey}; */
+  }
 `;
 
 export const AnswerForm = ({ className }) => {
-  const editor = useMemo(() => withReact(createEditor()), []);
-  const [value, setValue] = useState([
-    {
-      type: "paragraph",
-      children: [{ text: "A line of text in a paragraph." }],
-    },
-  ]);
+  const [content, setContent] = useState(null);
+
   return (
     <AnswerFormWrapper>
-      <Slate
-        editor={editor}
-        value={value}
-        onChange={(newValue) => setValue(newValue)}
-      >
-        <Editable />
-      </Slate>
+      <div className="wrapper">
+        <Editor
+          value={content}
+          onChange={(value) => {
+            setContent(value);
+          }}
+        />
+      </div>
+      <div className="button">Answer</div>
     </AnswerFormWrapper>
   );
 };

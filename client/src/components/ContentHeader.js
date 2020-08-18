@@ -41,9 +41,10 @@ export const ContentHeader = ({
   searchUrl,
   onSort,
   onSearch,
+  custompage,
 }) => {
   const { pathname } = useLocation();
-  const page = pathname.split("/")[1];
+  const page = custompage || pathname.split("/")[1];
 
   return (
     <ContentHeaderWrapper>

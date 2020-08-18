@@ -8,6 +8,7 @@ const TabListItem = styled.li`
   justify-content: center;
   font-weight: bold;
   cursor: pointer;
+  text-align: center;
   padding: 0 10px;
   &.tab-list-active {
     border-bottom: 2px solid ${(props) => props.theme.colors.dark};
